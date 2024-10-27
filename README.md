@@ -76,3 +76,17 @@ With financial data, predictability, consistency and accuracy are critical at a 
 
 • Existing services charge up US$700/mo/subscriber to provide meaningful trading signals from data but they are not interactive and you can't ask questions
 (e.g., https://squeezemetrics.com/monitor/dix)
+
+### System Dependencies
+
+To install this project, make sure you have the following system libraries:
+
+- **freetype**: Required by matplotlib for font rendering
+- **libpng**: Required by matplotlib for handling PNG images
+- **pkg-config**: Helps pip locate the above libraries during installation
+
+#### Installing System Libraries on macOS
+You can install these libraries using Homebrew:
+
+```bash
+brew install freetype libpng pkg-config
