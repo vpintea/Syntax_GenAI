@@ -1,37 +1,50 @@
 # Syntax_GenAI
 ## Demo project 
 
+This is a demo project, a proof of concept, to showcase the combination of trading signals and GenAI tools
+together can generate superior market information for an investor.
+
+
 ### How to Start and Use Application
-Instructions to setup (assumes MacOS)
+Setup (assumes MacOS)
 
 1. Go to root folder in your terminal
 2. Create virtual environment: python3 -m venv gen_ai_venv
 3. Activate environment: source gen_ai_venv/bin/activate
 4. Install dependences: pip install -r requirements.txt 
-5. Run: python 
+5. Run: python main.py
+6. Interact with the agent by advising it what date you are referencing followed by 
+what it's market prediction is (e.g., today is July 30, 2024, what do you expect of markets in the near term?)
 
-
-### The complex problem addressed
+### The Problem Statement
 
 How can we provide investment professional subscribers the ability to predict stock market 
-drawdowns using GenAI and financial data before they happen so they can protect
-their clients' porfolios?
+drawdowns using GenAI and financial data before it happens to protect clients' porfolios?
 
-### GenAI frameworks and tools used and the rationale
+### GenAI Frameworks and Tools Used and Rationale
 
-I used the GenAI tool, DIY, for this demo due to its:
+I used the GenAI tool, DIY, for this demo due to:
+
 • Customization capabilities in handling various datasets,
-• Low overhead as large data and calculations are already time and resource intensive, and, 
+
+• Low overhead as large data sets and heavy calculations are already time and resource intensive,
+and it allows one to streamline code to handle only the essential steps—loading, refining, processing, and feeding data to the model.
+
 • Suitability for well-defined tasks like generating insights from financial signals.
 
-• Trading models require large amounts of data and processing power for the signal calculations
+• The need to directly manage the flow of specific data sets (like CSV files and PostgreSQL data) into the AI model without 
+needing to adhere to the structure of a rigorous framework.
 
-• I need to directly manage the flow of my specific data (like CSV files and PostgreSQL data) into the AI model without needing to adhere to the structure of a rigorous framework
+I used the Chat Completions API functionality as it is designed to handle conversational prompts, allowing for multi-turn interactions
+where each response can build on prior context. This functionality is essential for responding to user queries about market insights 
+(e.g., “How likely will the market correct in the next few weeks?”) and for simulating advisor-like behavior in interpreting financial data trends.
 
-• You avoid the overhead that some frameworks add, allowing you to streamline your code to handle only the essential steps—loading, refining, processing, and feeding data to the model.
+As a next step, I would like to experiment with Langchain for multi-step queries. This could be beneficial for extended analysis 
+in financial forecasting or for creating a sequence of GenAI model prompts that connect various data insights.
 
 ### Architecture and Workflow of the Application
-Sample data used as input to GenAI tool. The blue line is the signal. The green line is the price of the S&P500 index price. The red line is a proxy of how expensive hedging is in the market.
+Sample data used as input to GenAI tool. The blue line is the signal - the entropic indicator. The green line is the price of the S&P500 index price.
+The red line is a proxy of how expensive hedging is in the market.
 ![Screenshot of the Training Data and Ground Truth](./entropy_training_data.png)
 
 Architecture of how data is obtained, transformed/processed, and transferred into the GenAI tool.
@@ -41,7 +54,7 @@ Architecture of how data is obtained, transformed/processed, and transferred int
 ### Key Challenges
 
 #### Challenges: 
-• Generating tradeable signals from financial data is extremely difficult as markets are efficient
+• Generating tradeable signals from financial data is extremely difficult
 
 • Generating tradeable signals that can be repeatable is even harder
 
@@ -70,7 +83,6 @@ and still generated meaningful output consistently.
 
 • Experimentaion also led to a temperature parameter of 0.2 to ensure reliable, consistent answers with less variability. 
 With financial data, predictability, consistency and accuracy are critical at a tradeoff for more creative answers seen in higher parameter values.  
-
 
 ### Business opportunity:
 
