@@ -8,6 +8,8 @@ together can generate superior market information for an investor.
 ### How to Start and Use Application
 Setup (assumes MacOS)
 
+Before starting: you will need your own ChatGPT API key to paste in constants.py
+
 1. Go to root folder in your terminal
 2. Create virtual environment: python3 -m venv gen_ai_venv
 3. Activate environment: source gen_ai_venv/bin/activate
