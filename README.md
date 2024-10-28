@@ -4,6 +4,8 @@
 This is a demo project, a proof of concept, to showcase the combination of trading signals and GenAI tools
 together can generate superior market information for an investor.
 
+Link to demo video:
+https://drive.google.com/file/d/1vEEwRexAGuaNt2bIv9J4xJNSHMpSrukZ/view?usp=sharing
 
 ### How to Start and Use Application
 Setup (assumes MacOS)
