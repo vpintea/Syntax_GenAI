@@ -42,8 +42,9 @@ def main() -> None:
         {current_data_text}
 
         Key Insight:
-        - A **sharp dip** in entropy means a quick and prolonged downtrend in entropy values over several days or weeks or if entropy values have declined and stabilized at a trough. This precedes market downturns
-        - Issue a cautious outlook if there a sharp dip in entropy occurred within the past 3-4 weeks.
+        - A **sharp dip** in entropy means a decrease in entropy values within the past 20 trading days. This marker always precedes market downturns.
+        - Issue a cautious outlook if there was any sharp dip in entropy within the past 4 weeks and the price of SPX has not decreased yet over the past 10 days. 
+        The longer entropy dips the more prolonged and sharp the pullback will be.
         - If a sharp dip in entropy is detected, warn that SPX prices may decline within the next 4 weeks, and suggest risk mitigation.
         - For all other cases, indicate that the current entropy trend does not suggest imminent SPX decrease.
         - Format the response as a single, short **Market Expectation** statement.
@@ -81,7 +82,7 @@ def start_chatGPT(client, messages):
                     model="gpt-4o-mini",
                     messages=messages,
                     temperature=0.2,
-                    max_tokens=250,
+                    max_tokens=150,
                 )
 
                 # Print the generated message from GPT-4
