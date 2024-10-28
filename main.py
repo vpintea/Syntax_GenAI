@@ -42,12 +42,13 @@ def main() -> None:
         {current_data_text}
 
         Key Insight:
-        - A **sharp dip** in entropy means a decrease in entropy values within the past 20 trading days. This marker always precedes market downturns.
-        - Issue a cautious outlook if there was any sharp dip in entropy within the past 4 weeks and the price of SPX has not decreased yet over the past 10 days. 
-        The longer entropy dips the more prolonged and sharp the pullback will be.
-        - If a sharp dip in entropy is detected, warn that SPX prices may decline within the next 4 weeks, and suggest risk mitigation.
-        - For all other cases, indicate that the current entropy trend does not suggest imminent SPX decrease.
-        - Format the response as a single, short **Market Expectation** statement.
+        - A **drop** in Entropy values (even a brief one) within the past 4-6 weeks consistently precedes a downturn in SPX prices within the next 4-6 weeks, regardless of whether entropy subsequently recovers.
+        - Consecutive days of Entropy decline serve as a particularly strong marker for an imminent market downturn, signaling increased risk of SPX decline.
+        - Conversely, if Entropy values maintain or rise, this does not signal stability or upside but rather that a decline in SPX is unlikely.
+        - Issue a cautious outlook if there has been *any* decline in Entropy values within the past 6 weeks, as this suggests a potential pullback in SPX prices within the coming 4-6 weeks. Recommend risk mitigation in this case.
+        - Do not mention "entropy"; use "market structure" instead.
+        - If no drop in market structure was observed, state that the current structure does not suggest an imminent decrease in SPX.
+        - Format the response as a single, clear **Market Expectation** statement.
         """
 
     # Set up initial messages for ChatGPT
@@ -56,7 +57,7 @@ def main() -> None:
         {"role": "user", "content": initial_prompt}
     ]
     client = OpenAI(api_key=API_KEY)
-    print("Interactive financial insights chatbot. Type 'exit' or press Ctrl+C to quit.")
+    print("Interactive financial insights chatbot. Start with the date of interest and request a market forecast. Type 'exit' or press Ctrl+C to quit.")
 
     start_chatGPT(client, messages)
 
@@ -81,8 +82,8 @@ def start_chatGPT(client, messages):
                 response = client.chat.completions.create(
                     model="gpt-4o-mini",
                     messages=messages,
-                    temperature=0.2,
-                    max_tokens=150,
+                    temperature=0.1,
+                    max_tokens=75,
                 )
 
                 # Print the generated message from GPT-4
