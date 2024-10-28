@@ -42,7 +42,7 @@ def main() -> None:
         {current_data_text}
 
         Key Insight:
-        - A **sharp dip** in entropy means a quick and prolonged downtrend in entropy values over several days or weeks or if entropy values have declined and not stabilized at a trough.
+        - A **sharp dip** in entropy means a quick and prolonged downtrend in entropy values over several days or weeks or if entropy values have declined and stabilized at a trough. This precedes market downturns
         - Issue a cautious outlook if there a sharp dip in entropy occurred within the past 3-4 weeks.
         - If a sharp dip in entropy is detected, warn that SPX prices may decline within the next 4 weeks, and suggest risk mitigation.
         - For all other cases, indicate that the current entropy trend does not suggest imminent SPX decrease.
