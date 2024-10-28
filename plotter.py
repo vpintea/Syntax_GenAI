@@ -33,6 +33,17 @@ class Plotter:
 
         fig = go.Figure()
 
+        # Skewness (red)
+        fig.add_trace(go.Scatter(
+            x=merged_df['Date'],
+            y=merged_df['Skewness'],
+            mode='lines',
+            name='Skewness',
+            line=dict(color='red', dash='dash', width=2),  # Dashed and thinner
+            yaxis='y3',
+            hovertemplate='Skewness: %{y:.4f}<extra></extra>'
+        ))
+
         # Entropy (blue)
         fig.add_trace(go.Scatter(
             x=merged_df['Date'],
@@ -57,17 +68,7 @@ class Plotter:
             hovertemplate='SPX Price: %{y:.2f}<extra></extra>'
         ))
 
-        # Skewness (red)
-        fig.add_trace(go.Scatter(
-            x=merged_df['Date'],
-            y=merged_df['Skewness'],
-            mode='lines+markers',
-            name='Skewness',
-            marker=dict(color='red', symbol='x', size=4),
-            line=dict(color='red'),
-            yaxis='y3',
-            hovertemplate='Skewness: %{y:.4f}<extra></extra>'
-        ))
+
 
         # Update layout for multiple y-axes
         fig.update_layout(
